@@ -3,17 +3,18 @@ import bookimg from '../../assets/books.jpg'
 
 const Banner = () => {
     return (
-        <div className="flex justify-around items-center bg-base-200 rounded-lg px-20 py-10 my-10">
+        <div className="flex justify-between items-center rounded-lg p-2 w-full bg-base-300 my-12">
   
-  <div>
-    <h2>New album is released!</h2>
-    <p>Click the button to listen on Spotiwhy app.</p>
+  <div className='p-20'>
+    <h2 className="text-2xl font-bold">New album is released!</h2>
+    <p className="text-lg">Click the button to listen on Spotiwhy app.</p>
+    <br />
     <div>
       <button className="btn btn-primary">Listen</button>
     </div>
   </div>
   <div>
-    <img className='w-8/12 '
+    <img className=' '
       src={bookimg}
       alt="Album" />
   </div>
