@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router';
 import { useLoaderData } from "react-router";
 import { IoMdStarHalf } from "react-icons/io";
+import { addToStoredDB} from '../../Utility/AddToDB';
 
 const BookDetails = () => {
     const {id}= useParams();
@@ -11,7 +12,12 @@ const BookDetails = () => {
     const singlebook=books.find(book => book.bookId === bookid);
     const {bookName,author,image,review,rating,category,tags,
 yearOfPublishing,totalPages, publisher
-}=singlebook
+}=singlebook;
+
+const handleAddToDB=(id)=>{
+    console.log(id);
+    addToStoredDB(id);
+}
 
     return (
        <div className="w-2/3 mx-auto my-10">
@@ -67,9 +73,9 @@ yearOfPublishing,totalPages, publisher
         </div>
       </div>
 
-      <div className="mt-6 flex flex-col sm:flex-row gap-3">
-        <button className="btn btn-accent mr-38">Read</button>
-        <button className="btn btn-info">Wishlist</button>
+      <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-between">
+        <button onClick={() => handleAddToDB(id)} className="btn btn-accent ">Mark as Read</button>
+        <button className="btn btn-info">Add To Wishlist</button>
       </div>
 
     </div>
