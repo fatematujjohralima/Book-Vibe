@@ -3,6 +3,10 @@ import { useParams } from 'react-router';
 import { useLoaderData } from "react-router";
 import { IoMdStarHalf } from "react-icons/io";
 import { addToStoredDB} from '../../Utility/AddToDB';
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+
+const MySwal = withReactContent(Swal)
 
 const BookDetails = () => {
     const {id}= useParams();
@@ -15,6 +19,11 @@ yearOfPublishing,totalPages, publisher
 }=singlebook;
 
 const handleAddToDB=(id)=>{
+  Swal.fire({
+  title: "Good job!",
+  text: "You clicked the button!",
+  icon: "success"
+});
     console.log(id);
     addToStoredDB(id);
 }
